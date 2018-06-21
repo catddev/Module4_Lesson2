@@ -28,8 +28,8 @@ start:
 	{
 	case 1:
 	{
-		int n [] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-		int pens[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		int n[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		int pens[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 		int size = 10;
 		cout << n << endl;
 		cout << pens << endl;
@@ -37,7 +37,7 @@ start:
 		if (n > pens)
 		{
 			cout << n - pens;
-			
+
 		}
 		else cout << pens - n;
 
@@ -47,13 +47,13 @@ start:
 		{
 			cout << n[i] << "\t";
 		}*/
-		
+
 	}
 	break;
 	case 2:
 	{
 		int b[8];
-		int a[10] = {1,2,3,4,5,6,7,8,9,10};
+		int a[10] = { 1,2,3,4,5,6,7,8,9,10 };
 		for (int i = 0; i < 8; i++)
 		{
 			cout << b[i] << endl;
@@ -93,7 +93,7 @@ start:
 		n = new int[size];
 		int x = 0;
 		cout << "Initialize:" << endl;
-		
+
 		for (int i = 0; i < size; i++)
 		{
 			cin >> n[i];
@@ -113,12 +113,12 @@ start:
 		int x = 0;
 		cout << "Initialize:" << endl;
 
-	/*	for (int i = size - 1; i >= 0; i--)
-		{
-			cin >> n[i];
-			x=
-		}
-		cout << x << " " << endl;*/
+		/*	for (int i = size - 1; i >= 0; i--)
+			{
+				cin >> n[i];
+				x=
+			}
+			cout << x << " " << endl;*/
 	}
 	break;
 	case 7:
@@ -136,11 +136,11 @@ start:
 	break;
 	case 8:
 	{
-		int a, b, n=0;
+		int a, b, n = 0;
 		a = rand() % 1000;
 		b = rand() % 1000;
-		cout << a <<" "<< b << endl;
-		
+		cout << a << " " << b << endl;
+
 		if (b > a)
 		{
 			/*int c = a;
@@ -169,9 +169,60 @@ start:
 	break;
 	case 9:
 	{
+		int product = 0;
+		int number = 0;
 
+		int price1 = 100;
+		int price2 = 200;
+		int price3 = 300;
+		int price4 = 400;
+		int sum = 0;
+
+		bool exit = false;
+		while (!exit)
+		{
+			cout << "choose product:" << endl;
+			cin >> product;
+			switch (product)
+			{
+			case 1:
+			{
+				cin >> number;
+				sum = sum + price1*number;
+				cout << sum << endl;
+			}
+			break;
+			case 2:
+			{
+				cin >> number;
+				sum = sum + price2*number;
+				cout << sum << endl;
+			}
+			break;
+			case 3:
+			{
+				cin >> number;
+				sum = sum + price3*number;
+				cout << sum << endl;
+			}
+			break;
+			case 4:
+			{
+				cin >> number;
+				sum = sum + price4*number;
+				cout << sum << endl;
+				break;
+			}
+			case 5:
+			{
+				exit = true;
+			}
+			break;
+			}
+			cout << "TOTAL: "<<sum << endl;
+		}
 	}
-	break;
+		break;
 	case 10:
 	{
 
@@ -181,4 +232,4 @@ start:
 		printf("\nerror: no tasks\n\n");
 	}
 	goto start;
-}
+	}
