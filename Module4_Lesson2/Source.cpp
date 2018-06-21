@@ -241,25 +241,28 @@ start:
 	break;
 	case 11:
 	{
+
 		int player = 0;
 		int computer = 0;
-		int x = 2 + rand() % 10;
-		int y = 2 + rand() % 10;
-		cout << x << " " << y << endl;
-		x = x + y;
-		cout << "you have: " << x << endl;
-
-		int a = 2 + rand() % 10;
-		int b = 2 + rand() % 10;
-		a = a + b;
-		computer = computer + a;
-
-		bool stop = false;
-		int n = 0;
-		do
+		
+		int n = 0, m=0;
+		
+		for (int i=0; i<10; i++)
 		{
+			int x = 2 + rand() % 10;
+			int y = 2 + rand() % 10;
+			cout << x << " " << y << endl;
+			x = x + y;
+			cout << "you have: " << x << endl;
+
+			int a = 2 + rand() % 10;
+			int b = 2 + rand() % 10;
+			a = a + b;
+			computer = computer + a;
+
 			bool enough = false;
 			bool myturn = false;
+
 			while (!enough)
 			{
 				player = player + x;
@@ -279,7 +282,7 @@ start:
 				else if (player > 21)
 				{
 					cout << "you lost!" << endl;
-					break;
+					enough = true;
 				}
 
 			}
@@ -303,13 +306,17 @@ start:
 					computer = computer + x;
 					cout << "computerTOTAL: " << computer << endl;
 				}
+				else if (computer == player)
+				{
+					cout << "DRAW: " << computer << "= " << player << endl;
+				}
 			}
-			cout << "wanna play more? 1 - yes, 2 - no" << endl;
-			cin >> n;
-			if (n == 1) continue;
-			else if (n == 2) stop = true;
 
-		} while (!stop);
+			/*cout << "wanna play more? 1 - yes, 2 - no" << endl;
+			cin >> m;
+			if (m == 1) i;
+			else if (m == 2) i=6;*/
+		}
 
 	}
 	break;
