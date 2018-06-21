@@ -225,6 +225,96 @@ start:
 		break;
 	case 10:
 	{
+		for (int i = 1; i < 100; i++)
+		{
+			bool is_prime = true;
+			for (int j = 2; j < i/2; j++)
+			{
+				if (i%j == 0)
+					is_prime = false;
+				if (is_prime)
+					cout << i << " ";
+			}
+			system("pause");
+		}
+	}
+	break;
+	case 11:
+	{
+		int player = 0;
+		int computer = 0;
+		int x = 2 + rand() % 10;
+		int y = 2 + rand() % 10;
+		cout << x << " " << y << endl;
+		x = x + y;
+		cout << "you have: " << x << endl;
+
+		int a = 2 + rand() % 10;
+		int b = 2 + rand() % 10;
+		a = a + b;
+		computer = computer + a;
+
+		bool stop = false;
+		int n = 0;
+		do
+		{
+			bool enough = false;
+			bool myturn = false;
+			while (!enough)
+			{
+				player = player + x;
+			
+				if (player < 22)
+				{
+					cout << "more cards? 1 - yes, 2 - no" << endl;
+					cin >> n;
+					if (n == 1)
+					{
+						x = 2 + rand() % 10;
+						player = player + x;
+						cout << "your card " << x << " newTOTAL: " << player << endl;
+					}
+					else if (n == 2) enough = true;
+				}
+				else if (player > 21)
+				{
+					cout << "you lost!" << endl;
+					break;
+				}
+
+			}
+
+			while (!myturn)
+			{
+				if (computer > 21)
+				{
+					cout << "computer lost!" << endl;
+					myturn = true;
+				}
+
+				if (computer > player && computer <= 21)
+				{
+					cout << "you lost! computerTOTAL: " << computer << endl;
+					myturn = true;
+				}
+				else if (computer < player && player <= 21)
+				{
+					x = 2 + rand() % 10;
+					computer = computer + x;
+					cout << "computerTOTAL: " << computer << endl;
+				}
+			}
+			cout << "wanna play more? 1 - yes, 2 - no" << endl;
+			cin >> n;
+			if (n == 1) continue;
+			else if (n == 2) stop = true;
+
+		} while (!stop);
+
+	}
+	break;
+	case 12:
+	{
 
 	}
 	break;
