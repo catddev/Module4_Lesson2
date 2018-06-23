@@ -178,6 +178,7 @@ start:
 		int price4 = 400;
 		int sum = 0;
 
+		int answer = 0;
 		bool exit = false;
 		while (!exit)
 		{
@@ -213,26 +214,34 @@ start:
 				cout << sum << endl;
 				break;
 			}
-			case 5:
+			case 0:
 			{
-				exit = true;
+				cout << "Quit? 1-yes, 2-no, continue" << endl;
+				cin >> answer;
+				if (answer == 1) exit = true;
+				else if (answer == 2)
+				{
+					exit = false;
+					sum = 0;
+				}
 			}
 			break;
 			}
 			cout << "TOTAL: "<<sum << endl;
+			
 		}
 	}
 		break;
-	case 10:
+	case 10: // ne rabotaet ego kod
 	{
 		for (int i = 1; i < 100; i++)
 		{
 			bool is_prime = true;
-			for (int j = 2; j < i/2; j++)
+			for (int j = 2; j < i; j++)
 			{
 				if (i%j == 0)
 					is_prime = false;
-				if (is_prime)
+				else
 					cout << i << " ";
 			}
 			system("pause");
