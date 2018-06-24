@@ -232,7 +232,7 @@ start:
 		}
 	}
 		break;
-	case 10: // ne rabotaet ego kod
+	case 10: //vyvesti vse postye chisla v diapozone
 	{
 		for (int i = 1; i < 100; i++)
 		{
@@ -241,28 +241,31 @@ start:
 			{
 				if (i%j == 0)
 					is_prime = false;
-				else
-					cout << i << " ";
 			}
+				
+			if(is_prime)
+				cout << i << " ";
+			}
+		cout << endl;
 			system("pause");
-		}
 	}
 	break;
 	case 11:
 	{
-
-		int player = 0;
-		int computer = 0;
-		
 		int n = 0, m=0;
 		
-		for (int i=0; i<10; i++)
+		bool stop = false;
+		while(!stop)
 		{
+			int player = 0;
+			int computer = 0;
+
 			int x = 2 + rand() % 10;
 			int y = 2 + rand() % 10;
 			cout << x << " " << y << endl;
 			x = x + y;
-			cout << "you have: " << x << endl;
+			player = player + x;
+			cout << "you have: " << player << endl;
 
 			int a = 2 + rand() % 10;
 			int b = 2 + rand() % 10;
@@ -274,26 +277,28 @@ start:
 
 			while (!enough)
 			{
-				player = player + x;
-			
 				if (player < 22)
 				{
 					cout << "more cards? 1 - yes, 2 - no" << endl;
 					cin >> n;
 					if (n == 1)
 					{
-						x = 2 + rand() % 10;
-						player = player + x;
-						cout << "your card " << x << " newTOTAL: " << player << endl;
+						int card = 2 + rand() % 10;
+						player = player + card;
+						cout << "your card " << card << " newTOTAL: " << player << endl;
 					}
-					else if (n == 2) enough = true;
+					else if (n == 2)
+					{
+						cout << "computer has " << computer << endl;
+						enough = true;
+					}
 				}
 				else if (player > 21)
 				{
 					cout << "you lost!" << endl;
 					enough = true;
+					myturn = true;
 				}
-
 			}
 
 			while (!myturn)
@@ -311,20 +316,22 @@ start:
 				}
 				else if (computer < player && player <= 21)
 				{
-					x = 2 + rand() % 10;
-					computer = computer + x;
+					int newcard = 2 + rand() % 10;
+					computer = computer + newcard;
+					cout << "computer takes one more card " << newcard << endl;
 					cout << "computerTOTAL: " << computer << endl;
 				}
 				else if (computer == player)
 				{
 					cout << "DRAW: " << computer << "= " << player << endl;
+					myturn = true;
 				}
 			}
 
-			/*cout << "wanna play more? 1 - yes, 2 - no" << endl;
+			cout << "wanna play more? 1 - yes, 2 - no" << endl;
 			cin >> m;
-			if (m == 1) i;
-			else if (m == 2) i=6;*/
+			if (m == 1) stop = false;
+			else if (m == 2) stop = true;
 		}
 
 	}
